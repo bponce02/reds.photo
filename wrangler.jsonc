@@ -1,14 +1,18 @@
 {
-	"$schema": "./node_modules/wrangler/config-schema.json",
-	"compatibility_date": "2026-11-01",
-	"compatibility_flags": ["global_fetch_strictly_public"],
-	"name": "reds-photo",
-	"main": "@astrojs/cloudflare/entrypoints/server",
-	"assets": {
-		"directory": "./dist",
-		"binding": "ASSETS"
-	},
-	"observability": {
-		"enabled": true
-	}
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "name": "reds-photo",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "route": {
+    "pattern": "reds.photo",
+    "zone_id": "b72ed4069a1f981caa7135f69a0ce6f4",
+  },
 }

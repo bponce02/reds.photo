@@ -1,12 +1,5 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.svelte";
 import "../styles/global.css";
-interface Props {
-    pageTitle: string;
-}
-
-const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,16 +8,22 @@ const { pageTitle } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
+        <title>Red's Photography</title>
     </head>
-    <body>
-        <header>
-            <Navigation client:load />
-        </header>
-        <main>
-            <h1>{pageTitle}</h1>
+    <header></header>
+    <main>
+        <nav class="bg-[#9f0000] h-20 flex items-center justify-between px-6 text-white font-sans font-medium tracking-widest uppercase">
+            <span class="">Red's Photography</span>
+            <div class="flex gap-6">
+                <a href="/about/">About Me</a>
+                <a href="/portfolio/">Portfolio</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/bows/">Bows</a>
+                <a href="/contact/">Contact</a>
+            </div>
+        </nav>
+        <body>
             <slot />
-        </main>
-        <Footer />
-    </body>
+        </body>
+    </main>
 </html>

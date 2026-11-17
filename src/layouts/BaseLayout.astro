@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "@fontsource-variable/archivo/wdth.css";
 ---
 
 <html lang="en">
@@ -11,19 +12,29 @@ import "../styles/global.css";
         <title>Red's Photography</title>
     </head>
     <header></header>
-    <main>
-        <nav class="bg-[#9f0000] h-20 flex items-center justify-between px-6 text-white font-sans font-medium tracking-widest uppercase">
-            <span class="">Red's Photography</span>
-            <div class="flex gap-6">
-                <a href="/about/">About Me</a>
-                <a href="/portfolio/">Portfolio</a>
-                <a href="/pricing/">Pricing</a>
-                <a href="/bows/">Bows</a>
-                <a href="/contact/">Contact</a>
-            </div>
+    <body class="font-['Archivo_Variable'] [font-stretch:115%] font-[350]">
+        <nav class="bg-[#9f0000] h-20 flex items-center justify-between px-6 text-white font-sans font-medium tracking-widest uppercase starting:bg-white transition-all duration-700">
+            <a href="/">Red's Photography</a>
+            <ul class="flex gap-6">
+                <li>
+                    <a href="/about/">About Me</a>
+                </li>
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+                <li>
+                    <a href="/pricing/">Pricing</a>
+                </li>
+                <li>
+                    <a href="/bows/">Bows</a>
+                </li>
+                <li>
+                    <a href="/contact/">Contact Me!</a>
+                </li>
+            </ul>
         </nav>
-        <body>
+        <main>
             <slot />
-        </body>
-    </main>
+        </main>
+    </body>
 </html>

@@ -1,0 +1,31 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+    image: ImageMetadata;
+    alt: string;
+    title: string;
+    subtitle?: string;
+    loading?: "eager" | "lazy";
+}
+
+const { image, alt, title, subtitle, loading = "lazy" } = Astro.props;
+---
+
+<figure class="w-full">
+    <Image
+        src={image}
+        alt={alt}
+        loading={loading}
+        class="h-auto w-full aspect-3/4 object-cover"
+    />
+    <figcaption class="flex flex-col items-start px-2 py-3">
+        <span class="text-lg font-medium leading-tight">{title}</span>
+        {subtitle && (
+            <span class="mt-1 text-sm leading-tight text-black/60">
+                {subtitle}
+            </span>
+        )}
+    </figcaption>
+</figure>

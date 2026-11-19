@@ -2,52 +2,104 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import heroImage from "../assets/example.jpg";
+
+import PhotoReel from "../components/PhotoReel.astro";
+const images2 = [
+    {
+        image: heroImage,
+        alt: "Glowing rings against a dark background",
+        title: "First photograph",
+        subtitle: "Atlanta, Georgia",
+    },
+    {
+        image: heroImage,
+        alt: "Another view of glowing rings",
+        title: "Second photograph",
+        subtitle: "Another caption",
+    },
+];
+
+const images3 = [
+    {
+        image: heroImage,
+        alt: "Glowing rings against a dark background",
+        title: "First photograph",
+        subtitle: "Atlanta, Georgia",
+    },
+    {
+        image: heroImage,
+        alt: "Another view of glowing rings",
+        title: "Second photograph",
+        subtitle: "Another caption",
+    },
+    {
+        image: heroImage,
+        alt: "Another view of glowing rings",
+        title: "Second photograph",
+        subtitle: "Another caption",
+    },
+];
 ---
 
 <BaseLayout>
-    <section class="grid grid-cols-2 h-96">
-        <div class="justify-center flex flex-col items-center gap-10">
-            <h1 class="text-4xl flex flex-col justify-center items-center gap-0 leading-none">
-                <span>RED'S</span>
-                <span>PHOTOGRAPHY</span>
-            </h1>
-            <p class="">Name</p>
-            <a href="/" class="border border-black py-3 px-15">
-                MESSAGE US
-            </a>
-        </div>
-        <Image
-            src={heroImage}
-            alt="Description of the photograph"
-            class="h-full w-full object-cover"
+    <div class="flex flex-col gap-12">
+        <section class="grid grid-cols-2 h-96">
+            <div class="justify-center flex flex-col items-center gap-10">
+                <h1 class="text-4xl flex flex-col justify-center items-center gap-0 leading-none">
+                    <span>RED'S</span>
+                    <span>PHOTOGRAPHY</span>
+                </h1>
+                <p class="">Name</p>
+                <a href="/" class="border border-black py-3 px-15">
+                    MESSAGE US
+                </a>
+            </div>
+            <Image
+                src={heroImage}
+                alt="Description of the photograph"
+                class="h-full w-full object-cover"
+            />
+        </section>
+        <section class="grid grid-cols-2 min-h-96">
+            <Image
+                src={heroImage}
+                alt="Description of photograh"
+                class="h-full w-full object-cover"
+            />
+            <div class="flex flex-col gap-4 p-8">
+                <h1 class="self-center flex flex-col items-center font-semibold text-2xl">
+                    <span>MEET THE</span>
+                    <span>PHOTOGRAPHER</span>
+                </h1>
+                <p>Hi everyone! I'm blah blah and I'm based in Atlanta, GA.</p>
+                <p>
+                    I have been taking pictures since I’ve been 14 years old. It
+                    first started as a creative median and a different way to
+                    veiw the world. I started with nature and random objects,
+                    but it quickly grew into something more. I was 17 when I
+                    bought my first professional grade camera and I haven’t
+                    truly ever put it down since.
+                </p>
+                <p>
+                    After nearly a decade of dabbling in photography, I decided
+                    to start expanding, not only to gain more traction, but as a
+                    way to finance my graduate school studies.
+                </p>
+                <p>
+                    Please feel free to look through the different events I have
+                    done thus far and do not hesitate to reach out!
+                </p>
+            </div>
+        </section>
+        <PhotoReel
+            images={images2}
+            headerVariant="left-picture-header"
+            headerText="PICTURES"
         />
-    </section>
-    <section class="grid grid-cols-2 h-96">
-        <Image
-            src={heroImage}
-            alt="Description of photograh"
-            class="h-full w-full object-cover"
+        <PhotoReel
+            images={images3}
+            headerVariant="header-centered"
+            headerText="PICTURES"
         />
-        <div class="flex flex-col gap-4 p-8">
-            <h1 class="self-center">MEET THE PHOTOGRAPER</h1>
-            <p>Hi everyone! I'm blah blah and I'm based in Atlanta, GA.</p>
-            <p>
-                I have been taking pictures since I’ve been 14 years old. It
-                first started as a creative median and a different way to veiw
-                the world. I started with nature and random objects, but it
-                quickly grew into something more. I was 17 when I bought my
-                first professional grade camera and I haven’t truly ever put it
-                down since.
-            </p>
-            <p>
-                After nearly a decade of dabbling in photography, I decided to
-                start expanding, not only to gain more traction, but as a way to
-                finance my graduate school studies.
-            </p>
-            <p>
-                Please feel free to look through the different events I have
-                done thus far and do not hesitate to reach out!
-            </p>
-        </div>
-    </section>
+    </div>
 </BaseLayout>

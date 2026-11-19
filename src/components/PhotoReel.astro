@@ -1,0 +1,48 @@
+---
+import type { ComponentProps } from "astro/types";
+import CaptionedImage from "./CaptionedImage.astro";
+type HeaderVariant = "header-left" | "header-centered" | "left-picture-header";
+
+type ReelImage = ComponentProps<typeof CaptionedImage>;
+
+interface Props {
+    headerVariant?: HeaderVariant;
+    images: ReelImage[];
+    headerText?: string;
+}
+
+const { images, headerVariant = "header-centered", headerText } = Astro.props;
+
+if (images.length < 2 || images.length > 3) {
+    throw new Error("PhotoReel requires two or three images.");
+} else if (images.length === 3 && headerVariant === "left-picture-header") {
+    throw new Error("PhotoReel cannot have left picture header and 3 images.");
+}
+
+let columns = images.length === 2 ? "grid-cols-2" : "grid-cols-3";
+
+const headerGoesAbove =
+    headerVariant === "header-left" || headerVariant === "header-centered";
+
+if (headerVariant === "left-picture-header") {
+    columns = "grid-cols-3";
+}
+---
+
+<section class="p-12">
+    {headerGoesAbove && headerText && (
+        <h1 class="text-2xl text-center mb-12">{headerText}</h1>
+    )}
+    <ul class:list={["gap-8 grid", columns]}>
+        {headerVariant === "left-picture-header" && headerText && (
+            <li class="grid aspect-3/4 w-full place-items-center self-start text-center text-2xl">
+                <h1 class="">{headerText}</h1>
+            </li>
+        )}
+        {images.map((photo) => (
+            <li>
+                <CaptionedImage {...photo} />
+            </li>
+        ))}
+    </ul>
+</section>

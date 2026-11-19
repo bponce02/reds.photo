@@ -1,0 +1,38 @@
+---
+import "@fontsource-variable/archivo/wdth.css";
+import heroImage from "../assets/example.jpg";
+import PhotoReel from "../components/PhotoReel.astro";
+import "../styles/global.css";
+
+const images = [
+    {
+        image: heroImage,
+        alt: "Glowing rings against a dark background",
+        title: "First photograph",
+        subtitle: "Atlanta, Georgia",
+    },
+    {
+        image: heroImage,
+        alt: "Another view of glowing rings",
+        title: "Second photograph",
+        subtitle: "Another caption",
+    },
+];
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Component Playground</title>
+    </head>
+    <body class="min-h-screen bg-neutral-100 p-8 font-['Archivo_Variable'] font-[350] [font-stretch:115%]">
+        <main class="mx-auto bg-white">
+            <PhotoReel
+                images={images}
+                headerVariant="left-picture-header"
+                headerText="PICTURES"
+            />
+        </main>
+    </body>
+</html>

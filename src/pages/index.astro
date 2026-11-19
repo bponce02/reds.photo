@@ -101,5 +101,33 @@ const images3 = [
             headerVariant="header-centered"
             headerText="PICTURES"
         />
+        <section class="flex flex-row px-12 gap-12">
+            <h2 class="flex flex-col text-4xl">
+                <span>READY</span>
+                <span>TO WORK</span>
+                <span>TOGETHER?</span>
+            </h2>
+            <div>
+                <Image
+                    src={heroImage}
+                    alt="Description of photograh"
+                    class="h-full w-full object-cover"
+                />
+                <div class="flex flex-row py-4">
+                    <p>
+                        Call 123-456-7890 or send a message to&nbsp;
+                        <a href="hello@reallygreatsite.com" class="underline">
+                            hello@reallygreatsite.com
+                        </a>
+                    </p>
+                    <a
+                        href="/"
+                        class="border border-black py-2 px-15 text-center"
+                    >
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
 </BaseLayout>
